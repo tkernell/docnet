@@ -17,11 +17,11 @@ The DocNet smart contract is hosted here. It handles granting and revoking datab
 
 
 ## UC001
-![UC001](./assets/UC001.jpeg)
+![UC001](./assets/uc001.jpeg)
 
 ## UC002
-![UC002](./assets/UC002.jpeg)
+![UC002](./assets/uc002.jpeg)
 
 ## UC003
-![UC003](./assets/UC003.jpeg)
+![UC003](./assets/uc003.jpeg)
 
