@@ -1,4 +1,5 @@
-# DocNet
+
+![DocNet](./assets/docnet_logo.jpeg)
 
 This is the full-stack proof of concept for the DocNet sovereign data management system. It consists of a Django backend for patient and doctor information dashboards with web3 integration, a vanilla js frontend using web3.js for access management, data encryption/decryption and uploading to smart contract storage, and a smart contract which gives patients control over granting and revoking database write permissions for health care providers.
 
@@ -13,4 +14,14 @@ This directory hosts the frontend for interacting with the smart contract and en
 ## Hardhat
 
 The DocNet smart contract is hosted here. It handles granting and revoking database write permissions for health care providers, and also acts as a storage medium for encrypted patient data. 
+
+
+## UC001
+![UC001](./assets/UC001.jpeg)
+
+## UC002
+![UC002](./assets/UC002.jpeg)
+
+## UC003
+![UC003](./assets/UC003.jpeg)
 
