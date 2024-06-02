@@ -25,3 +25,12 @@ The DocNet smart contract is hosted here. It handles granting and revoking datab
 ## UC003
 ![UC003](./assets/uc003.jpeg)
 
+
+## DocNet Smart Contact Deployments
+
+
+
+[Avalanche Fuji Testnet](https://testnet.snowtrace.io/address/0xf8f0faD8f4e3B5027Fc194977a8d51772837ef24)
+
+[Sepolia Testnet](https://sepolia.etherscan.io/address/0xDF43d45aCcBdAF1025b3aa8693F226F5DdccBfCc)
+
