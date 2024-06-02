@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Clinic</title>
+
+    {% load static %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-right: 20px;
+        }
+        .profile-info {
+            flex-grow: 1;
+        }
+        .profile-info h1 {
+            margin: 0;
+        }
+        .profile-info h3 {
+            margin-top: 5px;
+            color: #666;
+        }
+        .doctor-info {
+            text-align: right;
+        }
+        .doctor-info h4, .doctor-info h5 {
+            margin: 0;
+        }
+        .doctor-pic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto 10px;
+            background-image: url('{% static 'images/md.jpg' %}');
+        }
+        .info-table {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .info-table th, .info-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .info-table th {
+            background-color: #f8f8f8;
+        }
+        .logout-link {
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        {% if user.is_authenticated %}
+            {% if user.username == "0x068A761163eEE0D04e845C9227670Fc3dF7C3998" %}
+                <div class="profile-header">
+                    <div class="profile-pic" style="background-image: url('{% static 'images/logo.jpeg' %}');"></div>
+                    <div class="profile-info">
+                        <h1>Ibraim Abduramanov</h1>
+                        <h3>useribraim@gmail.com</h3>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="doctor-pic"></div>
+                        <h4>House MD</h4>
+                        <h5>house@gmail.com</h5>
+                    </div>
+                </div>
+
+                <h3>Patient Information</h3>
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Full Name</td>
+                            <td>John Doe</td>
+                        </tr>
+                        <tr>
+                            <td>Date of Birth</td>
+                            <td>January 1, 1990</td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>Male</td>
+                        </tr>
+                        <tr>
+                            <td>Contact Number</td>
+                            <td>+1 234 567 8901</td>
+                        </tr>
+                        <tr>
+                            <td>Email Address</td>
+                            <td>johndoe@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Home Address</td>
+                            <td>1234 Elm Street, Springfield, USA</td>
+                        </tr>
+                        <tr>
+                            <td>Insurance Provider</td>
+                            <td>HealthCare Inc.</td>
+                        </tr>
+                        <tr>
+                            <td>Policy Number</td>
+                            <td>HC123456789</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><h4>Verified User Info</h4></p>
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Verified Email</td>
+                            <td>johndoe@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Verified Phone</td>
+                            <td>+1 234 567 8901</td>
+                        </tr>
+                        <tr>
+                            <td>Verified Address</td>
+                            <td>1234 Elm Street, Springfield, USA</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr class="border border-info border-2 opacity-50">
+                <table class="info-table">
+                    
+                    <h4><samp>Who Has Access to Your Profile </samp></h4>
+                    <thead>
+                        
+                    </thead>
+                </table>
+                <div class="card-group">
+                    <div class="card">
+                      <img src="{% static 'images/uniHospital.jpg' %}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Letterkenny University Hospital</h5>
+                        <p class="card-text">Your hospital has access to your profile</p>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-body-secondary">Last viewed 1 day ago</small>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img src="{% static 'images/logo.jpeg' %}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">DocNet</h5>
+                        <p class="card-text">DocNet has access to your profile.</p>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-body-secondary">Last viewed 4 days ago</small>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img src="{% static 'images/md.jpg' %}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">House MD</h5>
+                        <p class="card-text">Your GP has access to your profile.</p>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-body-secondary">Last viewed 1 min ago</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <a href="http://localhost:8000/web3_auth/logout/" class="btn btn-danger logout-link">Logout</a>
+            {% elif user.username == "0xf8B34252724900c24b3309D0BDC4beb9a2b32ca8" %}
+                <div class="profile-header">
+                    <div class="profile-pic" style="background-image: url('{% static 'images/logo.jpeg' %}');"></div>
+                    <div class="profile-info">
+                        <h1>House MD</h1>
+                        <h3>house@gmail.com</h3>
+                    </div>
+                </div>
+
+                <h3>Physician Information</h3>
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Full Name</td>
+                            <td>House MD</td>
+                        </tr>
+                        <tr>
+                            <td>Email Address</td>
+                            <td>house@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>Contact Number</td>
+                            <td>+1 987 654 3210</td>
+                        </tr>
+                        <tr>
+                            <td>Specialization</td>
+                            <td>Diagnostic Medicine</td>
+                        </tr>
+                        <tr>
+                            <td>Years of Experience</td>
+                            <td>15</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>List of Patients</h4>
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>Patient Name</th>
+                            <th>Last Appointment</th>
+                            <th>Next Appointment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>May 5, 2024</td>
+                            <td>June 10, 2024</td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>April 20, 2024</td>
+                            <td>July 15, 2024</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Prescribed Medications</h4>
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>Medication</th>
+                            <th>Patient</th>
+                            <th>Dosage</th>
+                            <th>Prescribed Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aspirin</td>
+                            <td>John Doe</td>
+                            <td>100 mg</td>
+                            <td>May 5, 2024</td>
+                        </tr>
+                        <tr>
+                            <td>Ibuprofen</td>
+                            <td>Jane Smith</td>
+                            <td>200 mg</td>
+                            <td>April 20, 2024</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Upcoming Appointments</h4>
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>Patient</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>June 10, 2024</td>
+                            <td>10:00 AM</td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>July 15, 2024</td>
+                            <td>2:00 PM</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <a href="http://localhost:8000/web3_auth/logout/" class="btn btn-danger">Logout</a>
+                <a href="http://localhost:8000/web3_auth/moralis_auth" class="btn btn-primary">Login Page</a>
+            {% else %}
+                <a href="http://localhost:8000/web3_auth/moralis_auth" class="btn btn-primary">Login Page</a>
+            {% endif %}
+        {% else %}
+            <a href="http://localhost:8000/web3_auth/moralis_auth" class="btn btn-primary">Login Page</a>
+        {% endif %}
+    </div>
+</body>
+</html>

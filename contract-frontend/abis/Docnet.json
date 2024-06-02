@@ -1,0 +1,57 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_patientAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "_encryptedData",
+        "type": "string"
+      }
+    ],
+    "name": "editData",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "patientData",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "encryptedData",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_editor",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "_canEdit",
+        "type": "bool"
+      }
+    ],
+    "name": "updateEditPermissions",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

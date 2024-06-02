@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moralis Auth Django Demo</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+    <style>
+        .card-body {
+            position: relative;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .logo {
+            background: url("{% static 'images/logo.jpeg' %}") no-repeat center center;
+            background-size: contain;
+            height: 150px;
+            width: 100%;
+        }
+        .auth-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-body">
+                        {% if user.is_authenticated %}
+                            <h1>Welcome
+                              
+                              {% if user.username == "0x068A761163eEE0D04e845C9227670Fc3dF7C3998" %}
+                              Ibraim
+                              
+                          {% else %}
+                              
+                          {% endif %}
+                              
+                            </h1>
+                            <a href="http://localhost:8000/web3_auth/logout/" class="btn btn-danger logout-link">Logout</a>
+                            <br/>
+                            <a href="{% url 'my_profile' %}" class="btn btn-primary mt-2">My profile</a>
+                        {% else %}
+                            <div class="logo"></div>
+                            <button class="btn btn-primary auth-button" id="auth-metamask">Login with Web3</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+
+    {% if user.is_authenticated %}
+    {% else %}
+    <script>
+    const elBtnMetamask = document.getElementById('auth-metamask');
+
+    const handleApiPost = async (endpoint, params) => {
+      const result = await axios.post(`${endpoint}`, params, {
+        headers: {
+          'Content-Type': 'application/json',
+          "X-CSRFToken": '{{ csrf_token }}'
+        },
+      });
+    
+      return result.data;
+    };
+
+    const requestMessage = (account, chain) =>
+      handleApiPost('{% url 'request_message' %}', {
+        address: account,
+        chain: chain,
+        network: 'evm',
+      });
+
+    const verifyMessage = (message, signature) =>
+      handleApiPost('{% url 'verify_message' %}', {
+        message,
+        signature,
+        network: 'evm',
+      });
+
+    const connectToMetamask = async () => {
+      const provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
+    
+      const [accounts, chainId] = await Promise.all([
+        provider.send('eth_requestAccounts', []),
+        provider.send('eth_chainId', []),
+      ]);
+
+      const signer = provider.getSigner();
+      return { signer, chain: chainId, account: accounts[0] };
+    };
+
+    const handleAuth = async () => {
+      // Connect to Metamask
+      const { signer, chain, account } = await connectToMetamask();
+      console.log("account", account, "chain", chain)
+
+      if (!account) {
+        throw new Error('No account found');
+      }
+      if (!chain) {
+        throw new Error('No chain found');
+      }
+
+      const { message } = await requestMessage(account, chain);
+      const signature = await signer.signMessage(message);
+      const { user } = await verifyMessage(message, signature);
+      console.log(user)
+      if (user) {
+        location.reload();
+      }
+      else{
+        alert("authentication error")
+      }
+    };
+
+    function init() {
+      elBtnMetamask.addEventListener('click', async () => {
+        handleAuth().catch((error) => console.log(error));
+      });
+    }
+
+    window.addEventListener('load', () => {
+      init();
+    });
+    </script>
+    {% endif %}
+</body>
+</html>

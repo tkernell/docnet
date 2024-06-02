@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocNet</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="top-right">
+        <button id="walletButton" class="button-style-1" disabled>Connect Wallet</button>
+      </div>
+    </header>
+
+    <div class="box">
+      <section>
+        <h1><img src="../doc-net-logo.jpeg" alt="Descriptive Image Text" class="right-side-image">Doc Net</h1> 
+        <div>
+          <p>connected address: <span id="connectedAddress"></span></p>
+        </div>
+      </section>
+      <section>
+        <p><input type="text" id="_patientAddress" placeholder="                     patient address"/></p>
+        <p><input type="text" id="_patientKey" placeholder="                     patient key"/></p>
+        <p><textarea id="_patientData" placeholder="                     patient data" style="width: 400px; height: 150px;"></textarea></p>
+        <div class="button-container">
+          <button id="fetchData" class="button-style button-fetch" onclick="App.fetchPatientData()">Fetch Patient Data</button>
+          <button id="saveData" class="button-style button-save" onclick="App.savePatientData()">Save Patient Data</button>
+        </div>
+        <div class="collapsible-container">
+          <button class="collapsible-toggle">Manage Access</button>
+          <div class="collapsible-content">
+            <div>
+              <p>Doctor's Address</p>
+              <input type="text" id="doctorAddress" placeholder="Doctor's Address" style="font-size: 16px; padding: 10px; margin: 5px 0; width: 300px;">
+            </div>
+            <button id="grantAccess" class="button-style button-grant" onclick="App.grantAccess()" style="padding: 15px 30px; font-size: 18px; width: 100%; margin-top: 10px;">Grant Access</button>
+            <button id="revokeAccess" class="button-style button-revoke" onclick="App.revokeAccess()" style="padding: 15px 30px; font-size: 18px; width: 100%; margin-top: 10px;">Revoke Access</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="./extensions/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.3/web3.min.js"></script>
+    <script src="./extensions/web3.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
