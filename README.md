@@ -1,4 +1,4 @@
-# DocNet Frontend
+# DocNet
 
 This is the full-stack proof of concept for the DocNet sovereign data management system. It consists of a Django backend for patient and doctor information dashboards with web3 integration, a vanilla js frontend using web3.js for access management, data encryption/decryption and uploading to smart contract storage, and a smart contract which gives patients control over granting and revoking database write permissions for health care providers.
 
