@@ -1,6 +1,20 @@
 
 ![DocNet](./assets/docnet_logo.jpeg)
 
+## Contributors
+
+Sangeetha Ramesh
+
+Pradyumna Shivanandaiah
+
+Ibraim Abduramanov
+
+Con O'Leary
+
+Tim Kernell
+
+## Intro 
+
 This is the full-stack proof of concept for the DocNet sovereign data management system. It consists of a Django backend for patient and doctor information dashboards with web3 integration, a vanilla js frontend using web3.js for access management, data encryption/decryption and uploading to smart contract storage, and a smart contract which gives patients control over granting and revoking database write permissions for health care providers.
 
 ## Moralis_Auth
@@ -33,4 +47,6 @@ The DocNet smart contract is hosted here. It handles granting and revoking datab
 [Avalanche Fuji Testnet](https://testnet.snowtrace.io/address/0xf8f0faD8f4e3B5027Fc194977a8d51772837ef24)
 
 [Sepolia Testnet](https://sepolia.etherscan.io/address/0xDF43d45aCcBdAF1025b3aa8693F226F5DdccBfCc)
+
+
 
